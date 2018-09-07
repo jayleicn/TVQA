@@ -11,6 +11,10 @@ I am working on cleaning and re-running the scripts to make sure everything matc
 3. [ ] Add model and training scripts
 
 
+### Links
+- Paper: https://arxiv.org/abs/1809.01696
+- Dataset and Leaderboard: http://tvqa.cs.unc.edu/
+
 
 ### Citation
 ```
