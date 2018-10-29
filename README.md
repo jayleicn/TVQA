@@ -2,13 +2,26 @@
 PyTorch code accompanies the TVQA dataset paper, in EMNLP 2018
 
 ### Notice
-I am working on cleaning and re-running the scripts to make sure everything matches the paper. It may take a while, please follow this repo for updates.
+Data preprocessing scripts are now available, the rest of the code will be updated soon.
 
 
 ### TODO
-1. [ ] Add data preprocessing scripts
+1. [x] Add data preprocessing scripts
 2. [ ] Add baseline scripts
 3. [ ] Add model and training scripts
+
+
+### Usage
+```
+git clone https://github.com/jayleicn/TVQA.git
+```
+
+1. Data preprocessing
+```
+bash download.sh
+python preprocessing.py
+```
+
 
 
 ### Links
