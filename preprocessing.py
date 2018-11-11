@@ -1,6 +1,5 @@
 __author__ = "Jie Lei"
 
-
 import os
 import sys
 import re
@@ -212,10 +211,9 @@ def get_located_sub_text(ts, sub_text_list, sub_time, eos_token="<eos>"):
     located_indices = [located_indices[i] for i in range(len(located_indices))
                        if located_indices[i] <= len(sub_text_list) - 1]
 
-    # TODO is this necessary
     # add the one before the first located ts, no need to do it for the last one
-    # if 0 not in located_indices:
-    #     located_indices = [located_indices[0] - 1] + located_indices
+    if 0 not in located_indices:
+        located_indices = [located_indices[0] - 1] + located_indices
     eos_token = " %s " % eos_token
     located_sub_text = eos_token.join([sub_text_list[idx] for idx in located_indices])
     return located_sub_text
@@ -238,14 +236,12 @@ def add_located(raw_data_dicts, srt_data, frame_cnt):
     return data_dicts
 
 
-def process_qa(qa_path, srt_dir, frame_base_path, srt_cache_path, frame_cnt_cache_path, save_path):
-    srt_data = load_srt(srt_dir, srt_cache_path)
-    srt_data = tokenize_srt(srt_data)
+def process_qa(qa_path, processed_srt, frame_base_path, frame_cnt_cache_path, save_path):
     qa_data = read_json_lines(qa_path)
     qa_data = tokenize_qa(qa_data)
-    qa_srt_data = add_srt(qa_data, srt_data, eos_token="<eos>")
+    qa_srt_data = add_srt(qa_data, processed_srt, eos_token="<eos>")
     frame_cnt_dict = get_vidname2cnt_all(frame_base_path, frame_cnt_cache_path)
-    qa_srt_located_data = add_located(qa_srt_data, srt_data, frame_cnt_dict)
+    qa_srt_located_data = add_located(qa_srt_data, processed_srt, frame_cnt_dict)
     save_json(qa_srt_located_data, save_path)
 
 
@@ -253,7 +249,9 @@ if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("--data_dir", type=str, default="./data", help="data dir path")
-    parser.add_argument("--frm_dir", type=str, help="video frame dir path, the program will use cache if it exists")
+    parser.add_argument("--frm_dir", type=str,
+                        help="video frame dir path, the program will use provided cache if it exists. "
+                             "Only used to get number of extracted frames for each video.")
     args = parser.parse_args()
 
     data_dir = args.data_dir
@@ -261,9 +259,11 @@ if __name__ == '__main__':
     raw_qa_files = glob.glob(os.path.join(data_dir, "tvqa_qa_release", "*jsonl"))
     sub_cache_path = os.path.join(data_dir, "srt_data_cache.json")
     frm_cnt_cache_path = os.path.join(data_dir, "frm_cnt_cache.json")
+    srt_data = load_srt(sub_dir, sub_cache_path)
+    srt_data = tokenize_srt(srt_data)
 
     for i, qa_file in enumerate(raw_qa_files):
         print("-"*60)
-        print("Process %s" % qa_file)
+        print("Processing %s" % qa_file)
         processed_qa_path = os.path.join(data_dir, os.path.split(qa_file)[1].replace(".jsonl", "_processed.json"))
-        process_qa(qa_file, sub_dir, args.frm_dir, sub_cache_path, frm_cnt_cache_path, processed_qa_path)
+        process_qa(qa_file, srt_data, args.frm_dir, frm_cnt_cache_path, processed_qa_path)
