@@ -35,7 +35,7 @@ A multi-stream model, each stream process different contextual inputs.
 
 ### Requirements:
 - Python 2.7
-- PyTorch 4.0
+- PyTorch 0.4.0
 - tensorboardX
 - pysrt
 - tqdm
