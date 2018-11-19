@@ -93,6 +93,13 @@ For object detector, we used Faster R-CNN trained on Visual Genome, please refer
     python test.py --model_dir [results_dir] --mode valid
     ```
 
+
+### Results
+Please note this is a better version of the original implementation we used for EMNLP paper. 
+Bascially, I rewrote some of the data preprocessing code and updated the model to the latest 
+version of PyTorch, etc. By using this code, you should be able to get slightly 
+higher accuracy (~1%) than our paper.
+
 ### Links
 - Paper: https://arxiv.org/abs/1809.01696
 - Dataset and Leaderboard: http://tvqa.cs.unc.edu/

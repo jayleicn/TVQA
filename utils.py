@@ -19,6 +19,12 @@ def save_json(data, file_path):
         json.dump(data, f)
 
 
+def save_json_pretty(data, file_path):
+    """save formatted json, use this one for some json config files"""
+    with open(file_path, "w") as f:
+        f.write(json.dumps(data, indent=4, sort_keys=True))
+
+
 def load_json(file_path):
     with open(file_path, "r") as f:
         return json.load(f)

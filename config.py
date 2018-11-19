@@ -4,7 +4,7 @@ import os
 import time
 import torch
 import argparse
-from utils import mkdirp, load_json, save_json
+from utils import mkdirp, load_json, save_json, save_json_pretty
 
 
 class BaseOptions(object):
@@ -78,7 +78,7 @@ class BaseOptions(object):
         # Save settings
         if not isinstance(self, TestOptions):
             option_file_path = os.path.join(results_dir, 'opt.json')  # not yaml file indeed
-            save_json(args, option_file_path)
+            save_json_pretty(args, option_file_path)
 
     def parse(self):
         """parse cmd line arguments and do some preprocessing"""
