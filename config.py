@@ -52,7 +52,7 @@ class BaseOptions(object):
                                  help="test set path")
         self.parser.add_argument("--glove_path", type=str, default="./data/glove.6B.300d.txt",
                                  help="GloVe pretrained vector path")
-        self.parser.add_argument("--vcpt_path", type=str, default="./data/det_visual_concepts.pickle",
+        self.parser.add_argument("--vcpt_path", type=str, default="./data/det_visual_concepts_hq.pickle",
                                  help="visual concepts feature path")
         self.parser.add_argument("--vid_feat_path", type=str, default="./data/tvqa_imagenet_pool5.h5",
                                  help="imagenet feature path")

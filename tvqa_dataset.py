@@ -44,7 +44,7 @@ class TVQADataset(Dataset):
         self.qid_key = "qid"
         self.vid_name_key = "vid_name"
         self.located_frm_key = "located_frame"
-        for k in self.text_keys + [self.vcpt_key, self.label_key, self.qid_key, self.vid_name_key]:
+        for k in self.text_keys + [self.vcpt_key, self.qid_key, self.vid_name_key]:
             if k == "vcpt":
                 continue
             assert k in self.raw_valid[0].keys()
@@ -93,7 +93,10 @@ class TVQADataset(Dataset):
         items.append(self.numericalize_vcpt(cur_vis_sen))
 
         # add other keys
-        items.append(int(self.cur_data_dict[index][self.label_key]))
+        if self.mode == 'test':
+            items.append(666)  # this value will not be used
+        else:
+            items.append(int(self.cur_data_dict[index][self.label_key]))
         for k in [self.qid_key]:
             items.append(self.cur_data_dict[index][k])
         items.append(cur_vid_name)
@@ -283,7 +286,7 @@ if __name__ == "__main__":
     # python tvqa_dataset.py --input_streams sub
     import sys
     from config import BaseOptions
-    sys.argv[1:] = ["--input_streams" "sub"]
+    sys.argv[1:] = ["--input_streams", "sub"]
     opt = BaseOptions().parse()
 
     dset = TVQADataset(opt, mode="valid")

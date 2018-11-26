@@ -44,10 +44,10 @@ A multi-stream model, each stream process different contextual inputs.
 
 ### Video Features
 - ImageNet feature: Extracted from ResNet101, 
-  [Google Drive link](https://drive.google.com/a/cs.unc.edu/file/d/1wln-nuchbfLUc50AuG8g2YhEwyaHCH_T/view?usp=sharing)
+  [Google Drive link](https://drive.google.com/a/cs.unc.edu/file/d/1klm3FUJMCRPJjHZx497MvpGzrSrXgGIl/view?usp=sharing)
 - Regional Visual Feature: object-level encodings from object detector (too large to share ...)
 - Visual Concepts Feature: object labels and attributes from object detector
-  [download link](http://tvqa.cs.unc.edu/files/det_visual_concepts.pickle.tar.gz). This file is included in `download.sh`.
+  [download link](http://tvqa.cs.unc.edu/files/det_visual_concepts_hq.pickle.tar.gz). This file is included in `download.sh`.
 
 For object detector, we used Faster R-CNN trained on Visual Genome, please refer to this 
 [repo](https://github.com/peteanderson80/bottom-up-attention).
