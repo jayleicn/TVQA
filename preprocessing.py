@@ -207,9 +207,10 @@ def get_located_sub_text(ts, sub_text_list, sub_time, eos_token="<eos>"):
         closest_1 = find_nearest(np.asarray(sub_time), ts[0])
         located_indices.extend([closest_1 - 1, closest_1, closest_1 + 1])
 
-    # rm the indices larger than length of sub_text_list
+    # rm the indices larger than length of sub_text_list or negative
     located_indices = [located_indices[i] for i in range(len(located_indices))
-                       if located_indices[i] <= len(sub_text_list) - 1]
+                       if located_indices[i] <= len(sub_text_list) - 1 and
+                          located_indices[i] >= 0 ]
 
     # add the one before the first located ts, no need to do it for the last one
     if 0 not in located_indices:
