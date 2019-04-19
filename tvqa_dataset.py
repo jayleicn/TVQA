@@ -18,7 +18,8 @@ class TVQADataset(Dataset):
         self.vcpt_dict = load_pickle(opt.vcpt_path)
         self.vfeat_load = opt.vid_feat_flag
         if self.vfeat_load:
-            self.vid_h5 = h5py.File(opt.vid_feat_path, "r", driver=opt.h5driver)
+            #self.vid_h5 = h5py.File(opt.vid_feat_path, "r", driver=opt.h5driver)
+	    self.vid_h5 = h5py.File(opt.vid_feat_path, "r")
         self.glove_embedding_path = opt.glove_path
         self.normalize_v = opt.normalize_v
         self.with_ts = opt.with_ts
