@@ -9,6 +9,7 @@ cache/*
 tmp*.py
 *pickle
 run*sh
+/data
 
 # compiled files #
 *.pyc
