@@ -80,6 +80,7 @@ For object detector, we used Faster R-CNN trained on Visual Genome, please refer
     For words that do not exist in GloVe, random vectors `np.random.randn(self.embedding_dim) * 0.4` are used. 
     `0.4` is the standard deviation of the GloVe vectors
     ```
+    mkdir cache
     python tvqa_dataset.py
     ```
 
