@@ -1,8 +1,19 @@
 # TVQA
-PyTorch code accompanies the [TVQA dataset paper](https://arxiv.org/abs/1809.01696), in EMNLP 2018
+PyTorch code accompanies our EMNLP 2018 paper:
+
+[TVQA: Localized, Compositional Video Question Answering](https://arxiv.org/abs/1809.01696)
+
+[Jie Lei](http://www.cs.unc.edu/~jielei/), [Licheng Yu](http://www.cs.unc.edu/~licheng/),
+[Mohit Bansal](http://www.cs.unc.edu/~mbansal/), [Tamara L. Berg](http://tamaraberg.com/)
 
 
-### Dataset
+## Resources
+- Data: [TVQA dataset](http://tvqa.cs.unc.edu/download_tvqa.html)
+- Website: [http://tvqa.cs.unc.edu](http://tvqa.cs.unc.edu)
+- Submission/Leaderboard: [TVQA Leaderboard](http://tvqa.cs.unc.edu/leaderboard.html)
+- Related works: [TVR (Moment Retrieval)](https://github.com/jayleicn/TVRetrieval), [TVC (Video Captioning)](https://github.com/jayleicn/TVCaption), [TVQA+ (Grounded VideoQA)](https://github.com/jayleicn/TVQAplus)
+
+## Dataset
 TVQA is a large-scale video QA dataset based on 6 popular TV shows 
 (*Friends*, *The Big Bang Theory*, *How I Met Your Mother*, *House M.D.*, *Grey's Anatomy*, *Castle*). 
 It consists of 152.5K QA pairs from 21.8K video clips, spanning over 460 hours of video. 
@@ -29,11 +40,11 @@ relevant visual concepts.
 
 
 
-### Model Overview
+## Model Overview
 A multi-stream model, each stream process different contextual inputs. 
 ![model figure](./imgs/model_main.png)
 
-### Requirements:
+## Requirements:
 - Python 2.7
 - PyTorch 0.4.0
 - tensorboardX
@@ -42,7 +53,7 @@ A multi-stream model, each stream process different contextual inputs.
 - h5py
 - numpy
 
-### Video Features
+## Video Features
 - ImageNet feature: Extracted from ResNet101, 
   [Google Drive link](https://drive.google.com/a/cs.unc.edu/file/d/1klm3FUJMCRPJjHZx497MvpGzrSrXgGIl/view?usp=sharing)
 - Regional Visual Feature: object-level encodings from object detector (too large to share ...)
@@ -52,7 +63,7 @@ A multi-stream model, each stream process different contextual inputs.
 For object detector, we used Faster R-CNN trained on Visual Genome, please refer to this 
 [repo](https://github.com/peteanderson80/bottom-up-attention).
   
-### Usage
+## Usage
 
 0. Clone this repo
 
@@ -95,15 +106,11 @@ For object detector, we used Faster R-CNN trained on Visual Genome, please refer
     ```
 
 
-### Results
+## Results
 Please note this is a better version of the original implementation we used for EMNLP paper. 
 Bascially, I rewrote some of the data preprocessing code and updated the model to the latest 
 version of PyTorch, etc. By using this code, you should be able to get slightly 
 higher accuracy (~1%) than our paper.
-
-### Links
-- Paper: https://arxiv.org/abs/1809.01696
-- Dataset and Leaderboard: http://tvqa.cs.unc.edu/
 
 
 ### Citation
@@ -116,13 +123,13 @@ higher accuracy (~1%) than our paper.
 }
 ```
 
-### TODO
+## TODO
 1. [x] Add data preprocessing scripts
 2. [ ] Add baseline scripts
 3. [x] Add model and training scripts
 4. [x] Add test scripts
 
 
-### Contact
+## Contact
 - Dataset: faq-tvqa-unc [at] googlegroups.com
 - Model: Jie Lei, jielei [at] cs.unc.edu
