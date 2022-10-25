@@ -58,7 +58,7 @@ A multi-stream model, each stream process different contextual inputs.
   [Google Drive link](https://drive.google.com/a/cs.unc.edu/file/d/1klm3FUJMCRPJjHZx497MvpGzrSrXgGIl/view?usp=sharing)
 - Regional Visual Feature: object-level encodings from object detector (too large to share ...)
 - Visual Concepts Feature: object labels and attributes from object detector
-  [download link](http://tvqa.cs.unc.edu/files/det_visual_concepts_hq.pickle.tar.gz). This file is included in `download.sh`.
+  [download link](https://nlp.cs.unc.edu/data/jielei/tvqa/files/det_visual_concepts_hq.pickle.tar.gz). 
 
 For object detector, we used Faster R-CNN trained on Visual Genome, please refer to this 
 [repo](https://github.com/peteanderson80/bottom-up-attention).
@@ -131,5 +131,4 @@ higher accuracy (~1%) than our paper.
 
 
 ## Contact
-- Dataset: faq-tvqa-unc [at] googlegroups.com
-- Model: Jie Lei, jielei [at] cs.unc.edu
+Jie Lei, jielei [at] cs.unc.edu

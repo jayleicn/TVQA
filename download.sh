@@ -5,20 +5,12 @@ cd data
 
 # download
 echo [log] Start downloading files
-wget http://tvqa.cs.unc.edu/files/tvqa_qa_release.tar.gz -q --show-progress
-wget http://tvqa.cs.unc.edu/files/tvqa_subtitles.tar.gz -q --show-progress
-wget http://tvqa.cs.unc.edu/files/frm_cnt_cache.tar.gz -q --show-progress
-wget http://tvqa.cs.unc.edu/files/det_visual_concepts_hq.pickle.tar.gz -q --show-progress
-wget http://tvqa.cs.unc.edu/files/tvqa_data.md5 -q --show-progress
+wget https://nlp.cs.unc.edu/data/jielei/tvqa/files/tvqa_qa_release.tar.gz -q --show-progress
+wget https://nlp.cs.unc.edu/data/jielei/tvqa/files/tvqa_subtitles.tar.gz -q --show-progress
+wget https://nlp.cs.unc.edu/data/jielei/tvqa/files/frm_cnt_cache.tar.gz -q --show-progress
+wget https://nlp.cs.unc.edu/data/jielei/tvqa/files/det_visual_concepts_hq.pickle.tar.gz -q --show-progress
+wget https://nlp.cs.unc.edu/data/jielei/tvqa/files/tvqa_data.md5 -q --show-progress
 
-
-# check
-if ! md5sum -c tvqa_data.md5; then
-    echo [Log] Found corrupted file, please re-download the files.
-    exit 1
-else
-    echo [Log] All files are complete.
-fi
 
 # uncompress
 echo [Log] Uncompressing data
