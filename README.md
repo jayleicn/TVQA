@@ -7,9 +7,12 @@ PyTorch code accompanies our EMNLP 2018 paper:
 [Mohit Bansal](http://www.cs.unc.edu/~mbansal/), [Tamara L. Berg](http://tamaraberg.com/)
 
 
+**Updates 2022-10-24:** Our original web server is down due to a hardware failure, please access data, website, and submission/leaderboard from this [new link](https://nlp.cs.unc.edu/data/jielei/tvqa/tvqa_public_html).
+
+
 ## Resources
 - Data: [TVQA dataset](http://tvqa.cs.unc.edu/download_tvqa.html)
-- Website: [http://tvqa.cs.unc.edu](http://tvqa.cs.unc.edu)
+- Website: [http://tvqa.cs.unc.edu](http://tvqa.cs.unc.edu).
 - Submission/Leaderboard: [TVQA Leaderboard](http://tvqa.cs.unc.edu/leaderboard.html)
 - Related works: [TVR (Moment Retrieval)](https://github.com/jayleicn/TVRetrieval), [TVC (Video Captioning)](https://github.com/jayleicn/TVCaption), [TVQA+ (Grounded VideoQA)](https://github.com/jayleicn/TVQAplus)
 
@@ -19,13 +22,13 @@ TVQA is a large-scale video QA dataset based on 6 popular TV shows
 It consists of 152.5K QA pairs from 21.8K video clips, spanning over 460 hours of video. 
 The questions are designed to be compositional, requiring systems to jointly localize 
 relevant moments within a clip, comprehend subtitles-based dialogue, and recognize 
-relevant visual concepts.
+relevant visual concepts. Download TVQA data from [./data](./data).
 
 - QA example
 
     ![qa example](./imgs/example_main.png)
 
-    See examples in video: [click here](http://tvqa.cs.unc.edu/explore.html)
+    See examples in video: [click here](https://nlp.cs.unc.edu/data/jielei/tvqa/tvqa_public_html/explore.html)
 - Statistics
 
     | TV Show               | Genre   | #Season | #Episode | #Clip  | #QA     |
